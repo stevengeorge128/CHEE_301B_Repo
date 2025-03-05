@@ -59,14 +59,10 @@ def main():
     plt.grid(zorder=1)
     plt.xlabel("Concentration (g/L)")
     plt.ylabel("Conductivity (mS)")
-    slope = model.params.iloc[1]  # Slope
-    intercept = model.params.iloc[0]  # Intercept
-    equation_text = f"y = {slope:.8f}x + {intercept:.4f}"
-    plt.text(2.5,2,equation_text)
 
     # Scatter plots for individual trials
-    plt.scatter(x_to_graph, df["Conductivity_A_(mS)"], color=
-                "red", marker="o", label="Trial B", s=15, zorder=5)
+    plt.scatter(x_to_graph, df["Conductivity_A_(mS)"], color="black", marker="x", label="Trial A", s=15, zorder=5)
+    plt.scatter(x_to_graph, df["Conductivity_B_(mS)"], color="red", marker="o", label="Trial B", s=15, zorder=5)
     plt.scatter(x_to_graph, df["Conductivity_C_(mS)"], color="blue", label="Both Runs", s=15, zorder=5)
 
     # Plot regression lines
