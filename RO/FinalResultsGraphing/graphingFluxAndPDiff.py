@@ -2,31 +2,22 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-df = pd.read_excel("RO_Worksheet.xlsx", sheet_name="fluxVsPressure")
+df = pd.read_excel("RO_Worksheet.xlsx", sheet_name="fluxVsPDiff")
 unique_runs = df['Run'].unique()
 
 for run in unique_runs:
     run_df = df[df['Run'] == run]
+    print(run_df)
     
-
-    y = df["Transmembrane Pressure drop, kPa"]
-    x = df["Water Flux corrected to 25°C Jw, L/m^2-hr"]
 
     # Create plot
     plt.figure(figsize=(8, 8))
     plt.grid(zorder=1)
     plt.ylabel("Water Flux corrected to 25°C Jw, L/m^2-hr",fontsize=16, fontname="Arial")
-    plt.xlabel("Transmembrane Pressure drop, kPa",fontsize=16, fontname="Arial")
-
-    # plt.text(2.5,2,equation_text)
-
-    # Scatter plots for individual trials
-    # plt.scatter(x,y, color=
-    #             "red", marker="o", label=f"Experiment {run}", s=15, zorder=5)
-    # plt.scatter(x_to_graph, df["Conductivity_C_(mS)"], color="blue", label="Both Runs", s=15, zorder=5)
+    plt.xlabel("Delta P - Delta Pi (kPa)",fontsize=16, fontname="Arial")
     
     plt.scatter(run_df['Water Flux corrected to 25°C Jw, L/m^2-hr'],
-            run_df['Transmembrane Pressure drop, kPa'], 
+            run_df['Delta P - Delta Pi (kPa)'], 
             marker='o',
             s=50,
             label=f"Experiment {run}",
