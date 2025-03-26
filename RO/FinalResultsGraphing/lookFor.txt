@@ -1,0 +1,141 @@
+STEP 1: PLOT OF PERMEATE FLUX (J_w) VS. TRANSMEMBRANE PRESSURE (ΔP)
+
+A. Purpose:
+- To understand how water flux (J_w) through the RO membrane depends on the applied pressure.
+
+B. Theoretical Basis:
+- Permeate flux increases with pressure according to:
+    J_w = K_w(ΔP − Δπ)
+- In this step, you’re plotting J_w vs. ΔP (raw pressure), not yet correcting for osmotic pressure.
+
+C. What to Plot:
+- x-axis: ΔP (Transmembrane Pressure) [Units: bar or kPa]
+- y-axis: J_w (Water flux) [Units: L/m²·h]
+
+D. Data Processing:
+- Calculate J_w for each pressure condition:
+   J_w = V / (A × t)
+   where:
+     V = volume of permeate collected (L)
+     A = membrane area (m²)
+     t = time (h)
+
+E. What to Look For:
+- A roughly linear increase in J_w with ΔP.
+- If slope is consistent across different salts/concentrations, membrane performance is stable.
+- Non-linearity could suggest membrane saturation, fouling, or concentration polarization.
+
+F. Tips:
+- Label each curve based on salt and concentration.
+- Use separate plots for each salt & concentration combination.
+- Include error bars on flux (based on volume & time measurement uncertainty).
+
+---------------------------------------------
+
+STEP 2: CORRECTED FLUX AND SALT FLUX PLOTS (USE OF SOLUTION DIFFUSION MODEL)
+
+A. Goal:
+- Plot J_w vs. (ΔP − Δπ) to determine water permeability coefficient K_w.
+- Plot J_s vs. Δc_s to determine salt permeability coefficient K_s.
+
+B. Key Equations:
+- Water flux: J_w = K_w(ΔP − Δπ)
+- Salt flux: J_s = K_sΔc_s
+
+C. What to Plot:
+
+1. J_w vs. (ΔP − Δπ)
+   - x-axis: Effective Pressure = (ΔP − Δπ) [bar]
+   - y-axis: J_w (Water flux) [L/m²·h]
+   - The slope = K_w (water permeability coefficient)
+
+2. J_s vs. Δc_s
+   - x-axis: Δc_s = c_feed − c_permeate [g/L or mol/L]
+   - y-axis: J_s (Salt flux) [g/m²·h or mol/m²·h]
+   - Calculate salt flux:
+      J_s = (mass of salt in permeate) / (A × t)
+
+D. Data Requirements:
+- Osmotic pressure (π) calculation:
+   π = i × c × R × T
+   - i = van’t Hoff factor (e.g., 2 for NaCl, 3 for MgSO₄)
+   - c = molar concentration [mol/L]
+   - R = 0.08314 L·bar/mol·K
+   - T = temperature [K]
+
+- For salt flux (J_s), measure:
+   - EC of permeate → convert to concentration using your calibration curve
+   - Calculate mass of salt passed → use volume × c_permeate
+
+E. What to Look For:
+- A linear relationship confirms solution-diffusion behavior.
+- Slopes (K_w and K_s) represent membrane performance.
+- Compare K_w and K_s across salts and concentrations.
+
+F. Tips:
+- Keep units consistent (e.g., L, m², h).
+- Use linear regression with R² to evaluate fit quality.
+- Include all individual data points (don’t average them), and add best-fit line.
+
+---------------------------------------------
+
+STEP 3: MODEL COMPARISON AND EVALUATION OF OSMOTIC EFFECTS
+
+A. Purpose:
+- To determine if osmotic pressure significantly affects water transport.
+- To compare experimental data with theoretical predictions (solution-diffusion model).
+
+B. Comparison of Two Plots:
+1. J_w vs. ΔP:
+   - Shows raw relationship of water flux to pressure.
+   - May appear linear, but ignores osmotic backpressure.
+
+2. J_w vs. (ΔP − Δπ):
+   - Corrects for osmotic pressure.
+   - Should give a more accurate representation of membrane behavior.
+   - If this line is more linear and passes closer to origin, confirms solution-diffusion model.
+
+C. Salt Flux Validation:
+- J_s vs. Δc_s should be linear if salt transport is diffusive.
+- Significant deviations may imply:
+   - Polarization effects
+   - Membrane selectivity limits
+   - Experimental error in EC measurements
+
+D. Questions to Ask:
+- Does correcting for Δπ change the slope significantly?
+- Does J_w appear more consistent after Δπ correction?
+- Are salt fluxes linear and consistent with theory?
+- How do K_w and K_s compare between NaCl and MgSO₄?
+  (Divalent salts usually show lower K_s due to higher rejection)
+
+E. Qualitative Observations:
+- If NaCl has higher J_s than MgSO₄ → expected due to monovalent nature.
+- If J_w decreases at high salt concentrations → osmotic pressure is limiting flux.
+
+F. Quantitative Analysis:
+- Report values of K_w and K_s from best-fit lines.
+- Compare trends across the 4 test conditions (2 salts × 2 concentrations).
+- Discuss any outliers or unexpected slopes in light of possible fouling or concentration polarization.
+
+---------------------------------------------
+
+UNITS QUICK REFERENCE:
+- Water flux (J_w): L/m²·h
+- Salt flux (J_s): g/m²·h or mol/m²·h
+- EC: µS/cm or mS/cm
+- Concentration: g/L or mol/L
+- Osmotic pressure (π): bar
+- Pressure (ΔP): bar
+- Permeation Coefficients:
+   - K_w: L/m²·h·bar⁻¹
+   - K_s: g/m²·h·(g/L)⁻¹ or mol/m²·h·(mol/L)⁻¹
+
+---------------------------------------------
+
+TIPS:
+- Use distinct plot markers or line styles for each salt/concentration.
+- Include legends and labeled axes for clarity.
+- Discuss which model fits best and why.
+- Highlight how your data confirms or challenges the expected behavior of the membrane.
+
