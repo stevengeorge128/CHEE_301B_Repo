@@ -80,7 +80,10 @@ for run in unique_runs:
     plt.plot([], [], label=f"R² = {r2:.5f}", color="white")
     # print(fx.coefficients)
     Kw_kPa = fx.coefficients[0]
-    Kw_atm = Kw_kPa * 101.325  # 1 atm = 101.325 kPa
+    if (run < 3):
+        Kw_atm = Kw_kPa * 101.325 * 0.99705 * 1000 / 58.11  # 1 atm = 101.325 kPa
+    else:
+        Kw_atm = Kw_kPa * 101.325 * 0.99705*1000 / 95.211
 
     # plt.plot([], [], label=f"$K_{{w}}$ = {Kw_kPa:.5f} $\\frac{{L}}{{m^2 \\cdot hr \\cdot kPa}}$", color="white")
     # plt.plot([], [], label=f" = {Kw_atm:.5f} $\\frac{{L}}{{m^2 \\cdot hr \\cdot atm}}$", color="white")
@@ -93,7 +96,7 @@ for run in unique_runs:
     plt.text((min(x) + (max(x)-min(x))/2), 
              fx((min(x) + (max(x)-min(x))/2)) - 3, 
             f"$K_{{w}}$ = {Kw_kPa:.5f} $\\frac{{L}}{{m^2 \\cdot hr \\cdot kPa}}$\n"
-            f"= {Kw_atm:.5f} $\\frac{{L}}{{m^2 \\cdot hr \\cdot atm}}$",
+            f"= {Kw_atm:.5f} $\\frac{{mol}}{{m^2 \\cdot hr \\cdot atm}}$",
             # transform=plt.gca().transAxes,  # so it's relative to the axes
             fontsize=24,
             verticalalignment='top',

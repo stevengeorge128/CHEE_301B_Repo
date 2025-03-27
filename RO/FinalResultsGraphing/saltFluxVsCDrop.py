@@ -65,4 +65,5 @@ for run in unique_runs:
 
     # Show plot
     # plt.show()
+    
     plt.savefig(f"SaltFluxVsCDiff{run}")
